@@ -1,0 +1,122 @@
+import java.util.Scanner;
+
+public class RowdyNCalculator {
+    public static void main(String[] args) {
+
+        Scanner scnr = new Scanner(System.in);
+        int i;
+        double result = 0;
+
+        //print title
+        System.out.println("School- Fall 2022 - CS1083 - Section 123 - Project I - RowdyNCalculator - written by Author");
+        System.out.println(" ");
+
+        //get number of operations
+        System.out.print("Please, enter the number of calculations you would like to perform: ");
+        int numberOps = scnr.nextInt();
+
+        for (i = 1; i <= numberOps; i++) { //for loop numberOps
+
+            System.out.println("Operation number " + i );
+
+            //get datatype
+            System.out.print("Please, select your choice of datatype of operation (i-integer, d-double): ");
+            char dataType = scnr.next().charAt(0);
+
+            if (dataType == 'd') {
+                //get first int value
+                System.out.print("Please, input the first double value: ");
+                double firstNum = scnr.nextDouble();
+
+                //get operation
+                System.out.print("Please, input the character of the operation (+, -, *, /, %): ");
+                String firstOps = scnr.next();
+
+                //get second int value
+                System.out.print("Please, input the second double value: ");
+                double secondNum = scnr.nextDouble();
+
+                //operations the user can use
+            if (firstOps.equals("+")) {
+                    System.out.println("The result of adding " + firstNum + " plus " + secondNum + " is: " + String.format("%.3f", firstNum + secondNum));
+                    result += firstNum + secondNum;
+            }
+            else if (firstOps.equals("-")) {
+                    System.out.println("The result of subtracting " + firstNum + " minus " + secondNum + " is: " + String.format("%.3f",firstNum - secondNum));
+                    result += firstNum - secondNum;
+            }
+            else if (firstOps.equals("*")) {
+                    System.out.println("The result of multiplying " + firstNum + " by " + secondNum + " is: " + String.format("%.3f",firstNum * secondNum));
+                    result += firstNum * secondNum;
+            }
+            else if (firstOps.equals("/")) {
+                    System.out.println("The result of dividing " + firstNum + " by " + secondNum + " with only 3 decimals is: " + String.format("%.3f",firstNum / secondNum));
+                    result += firstNum / secondNum;
+            }
+            else if (firstOps.equals("%")) {
+                    System.out.println("The result of modulo operation of " + firstNum + " by " + secondNum + " is: " + String.format("%.3f",firstNum % secondNum));
+                    result += firstNum % secondNum;
+            } //last else if
+            else {
+                //operations error
+                System.out.println("Wrong operation.");
+            }
+
+            } // if datatype d
+
+            else if (dataType == 'i') {
+
+                //get first int value
+                System.out.print("Please, input the first integer value: ");
+                int firstNum = scnr.nextInt();
+
+                //get operation
+                System.out.print("Please, input the character of the operation (+, -, *, /, %): ");
+                String firstOps = scnr.next();
+
+                //get second int value
+                System.out.print("Please, input the second integer value: ");
+                int secondNum = scnr.nextInt();
+
+                //operations the user can use
+                if (firstOps.equals("+")) {
+                    System.out.println("The result of adding " + firstNum + " plus " + secondNum + " is: " + (firstNum + secondNum));
+                    result += firstNum + secondNum;
+                }
+                else if (firstOps.equals("-")) {
+                    System.out.println("The result of subtracting " + firstNum + " minus " + secondNum + " is: " + (firstNum - secondNum));
+                    result += firstNum - secondNum;
+                }
+                else if (firstOps.equals("*")) {
+                    System.out.println("The result of multiplying " + firstNum + " by " + secondNum + " is: " + (firstNum * secondNum));
+                    result += firstNum * secondNum;
+                }
+                else if (firstOps.equals("/")) {
+                    System.out.println("The result of dividing " + firstNum + " by " + secondNum + " is: " + (firstNum / secondNum));
+                    result += firstNum / secondNum;
+                }
+                else if (firstOps.equals("%")) {
+                    System.out.println("The result of modulo operation of " + firstNum + " by " + secondNum + " is: " + (firstNum % secondNum));
+                    result += firstNum % secondNum;
+                }
+                else {
+                    //operations error
+                    System.out.println("Wrong operation.");
+                }
+
+                }//else if dataType i curly
+                else {
+                    //datatype error
+                    System.out.println("Wrong datatype.");
+                }
+
+        } //for loop numberOps curly
+
+        //thank you message
+        System.out.println("Thank you for using the RowdyNCalculator!");
+
+        //sum of all operations
+        System.out.println("The sum of the result of all " + i + " operations is: " + String.format("%.3f",result));
+
+    }
+}
